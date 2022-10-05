@@ -85,10 +85,10 @@ public class employee extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        c_pass = new javax.swing.JTextField();
         c_age = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        c_pass = new javax.swing.JPasswordField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -107,7 +107,6 @@ public class employee extends javax.swing.JPanel {
         jLabel2.setText("Mobile Number :");
 
         c_name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        c_name.setText("0");
 
         c_tp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         c_tp.setText("0");
@@ -155,15 +154,7 @@ public class employee extends javax.swing.JPanel {
         jLabel7.setText("Age :");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Mobile Number :");
-
-        c_pass.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        c_pass.setText("0");
-        c_pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                c_passActionPerformed(evt);
-            }
-        });
+        jLabel8.setText("Address :");
 
         c_age.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         c_age.setText("0");
@@ -172,6 +163,8 @@ public class employee extends javax.swing.JPanel {
         jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
         jTextArea1.setRows(5);
         jScrollPane2.setViewportView(jTextArea1);
+
+        c_pass.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -198,17 +191,15 @@ public class employee extends javax.swing.JPanel {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(c_tp, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel6))
                         .addGap(49, 49, 49)
-                        .addComponent(c_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addGap(89, 89, 89)
-                        .addComponent(c_age, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(c_age, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(c_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -298,6 +289,7 @@ public class employee extends javax.swing.JPanel {
         );
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/pro/img/search x30.png"))); // NOI18N
         jLabel5.setText("Search :");
 
         c_search_tbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -416,12 +408,15 @@ public class employee extends javax.swing.JPanel {
         String name = c_name.getText();
         String tp = c_tp.getText();
         String id = c_search.getText();
-
+        String passwd = c_pass.getText();
         try {
 
             Statement s = db.mycon().createStatement();
             s.executeUpdate(" UPDATE employee SET Employee_Name ='" + name + "' ,Tp_Number ='" + tp + "' WHERE eid = '" + id + "' ");
-            JOptionPane.showMessageDialog(null, "Dtata Updated");
+            
+            s.executeUpdate(" UPDATE adminlogin SET  password ='" + passwd + "' WHERE username = '" + name + "' " );
+            
+            JOptionPane.showMessageDialog(null, "Data Updated");
 
         } catch (Exception e) {
             System.out.println(e);
@@ -498,15 +493,11 @@ public class employee extends javax.swing.JPanel {
 
     }//GEN-LAST:event_c_search_tblKeyReleased
 
-    private void c_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_c_passActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_c_passActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField c_age;
     private javax.swing.JTextField c_name;
-    private javax.swing.JTextField c_pass;
+    private javax.swing.JPasswordField c_pass;
     private javax.swing.JTextField c_search;
     private javax.swing.JTextField c_search_tbl;
     private javax.swing.JTextField c_tp;

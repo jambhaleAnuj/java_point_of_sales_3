@@ -24,59 +24,16 @@ import javax.swing.table.DefaultTableModel;
  */
 public class product extends javax.swing.JPanel {
 
-    private static ServerSocket serverSocket;
-private static Socket clientSocket;
-private static InputStreamReader inputStreamReader;
-private static BufferedReader bufferedReader;
-private static String message="";
+  
     /**
      * Creates new form customer
      */
     public product() {
         initComponents();
         tb_load();
-        Thread t2 = new Thread(new product.getBarcode());
-        t2.start();
-        
     }
     
     
-     private class getBarcode implements Runnable{
-         
-            public void run() {
-               try {
-		// creating a new ServerSocket at port 4444
-		serverSocket = new java.net.ServerSocket(4445);
-
-	} catch (IOException e) {
-		System.out.println("Could not listen on port: 4445");
-	}
-
-	System.out.println("Server started. Listening to the port 4445");
-        System.out.println("Hello from ServerSocket1");
-
-
-	while (!message.equalsIgnoreCase("over")) {
-		try {
-			clientSocket = serverSocket.accept();
-			
-			inputStreamReader = new InputStreamReader(clientSocket.getInputStream());
-			bufferedReader = new BufferedReader(inputStreamReader);					
-			
-			
-			message = bufferedReader.readLine();
-
-			
-			System.out.println(message);
-			p_bcode.setText(message);
-                        
-			inputStreamReader.close();
-			clientSocket.close();
-
-		} catch (IOException ex) {
-			System.out.println("Problem in message reading");
-		}
-        }}}
   public void tb_load(){
   
   
@@ -153,7 +110,6 @@ private static String message="";
         jLabel2.setText("Bar Code :");
 
         p_name.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        p_name.setText("0");
 
         p_bcode.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         p_bcode.setText("0");
@@ -203,7 +159,7 @@ private static String message="";
         jLabel5.setText("Price :");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("SUpplier ID :");
+        jLabel6.setText("Supplier ID :");
 
         p_sid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         p_sid.setText("0");
@@ -355,10 +311,10 @@ private static String message="";
         );
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/pos/pro/img/search x30.png"))); // NOI18N
         jLabel8.setText("Search :");
 
         c_search_tbl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        c_search_tbl.setText("0");
         c_search_tbl.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 c_search_tblKeyReleased(evt);

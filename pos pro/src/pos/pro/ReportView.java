@@ -25,6 +25,7 @@ import javax.swing.*;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.export.JRXlsExporter;
 import net.sf.jasperreports.swing.JRViewer;
 import pos.pro.db;
 import org.jfree.util.PublicCloneable;
@@ -54,6 +55,9 @@ public class ReportView extends JFrame
 
         try
         {
+           
+            
+            
             JasperPrint print = JasperFillManager.fillReport(fileName, para, con);
             JRViewer viewer = new JRViewer(print);
             Container c = getContentPane();
@@ -67,6 +71,8 @@ public class ReportView extends JFrame
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
+    
+    
     void print() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }

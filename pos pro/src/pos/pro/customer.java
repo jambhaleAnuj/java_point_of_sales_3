@@ -417,13 +417,15 @@ public class customer extends javax.swing.JPanel {
         String name = c_name.getText();
         String tp = c_tp.getText();
         String id = c_search.getText();
-        
+        String cust_email = email.getText();
+        String cust_city = city.getText();
+        String cust_address = address.getText();
         
         try {
             
             Statement s = db.mycon().createStatement();
-            s.executeUpdate(" UPDATE customer SET customer_name ='"+name+"' ,Tp_Number ='"+tp+"' WHERE cid = '"+id+"' ");
-             JOptionPane.showMessageDialog(null, "Dtata Updated");
+            s.executeUpdate(" UPDATE customer SET customer_name ='"+name+"' ,Tp_Number ='"+tp+"',email ='"+cust_email+"',city ='"+cust_city+"',address='"+cust_address+"' WHERE cid = '"+id+"' ");
+             JOptionPane.showMessageDialog(null, "Data Updated");
             
             
         } catch (Exception e) {
@@ -431,7 +433,11 @@ public class customer extends javax.swing.JPanel {
         }
         
          tb_load();
-        
+         c_name.setText("");
+         c_tp.setText("");
+        email.setText("");
+        city.setText("");
+        address.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
