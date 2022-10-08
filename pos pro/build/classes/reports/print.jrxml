@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.14.0.final using JasperReports Library version 6.14.0-2ab0d8625be255bf609c78e1181801213e51db8f  -->
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="print" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b78a9b5c-970a-4cd4-98c5-17bac53640c9">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="print" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b78a9b5c-970a-4cd4-98c5-17bac53640c9">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="112"/>
+	<property name="ireport.y" value="79"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
 	<style name="Detail" fontName="Arial" fontSize="12"/>
 	<parameter name="inv_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="paid" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="saved" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
@@ -50,7 +55,7 @@ WHERE
 	<field name="sales_Balance" class="java.lang.String"/>
 	<group name="my">
 		<groupFooter>
-			<band height="57">
+			<band height="245">
 				<staticText>
 					<reportElement style="Column header" x="303" y="11" width="92" height="15" forecolor="#000000" uuid="d5dfcb9b-e789-4100-83a1-1b9cced54d38"/>
 					<textElement textAlignment="Right">
@@ -59,7 +64,7 @@ WHERE
 					<text><![CDATA[TOTAL AMOUNT :]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="Column header" x="302" y="34" width="92" height="15" forecolor="#000000" uuid="12e9ebdf-7b08-4197-929a-4f35a7909a82"/>
+					<reportElement style="Column header" x="171" y="149" width="92" height="15" forecolor="#000000" uuid="12e9ebdf-7b08-4197-929a-4f35a7909a82"/>
 					<textElement textAlignment="Right">
 						<font size="10"/>
 					</textElement>
@@ -79,8 +84,51 @@ WHERE
 					</graphicElement>
 				</line>
 				<textField>
-					<reportElement x="413" y="34" width="132" height="15" uuid="2e5c13b5-94ea-4621-8be5-ce681b3d21a2"/>
+					<reportElement x="263" y="149" width="132" height="15" uuid="2e5c13b5-94ea-4621-8be5-ce681b3d21a2"/>
 					<textFieldExpression><![CDATA[$F{sales_Balance}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="163" y="113" width="100" height="17" uuid="3649a4a8-5d8b-447a-b3af-e8358202895f"/>
+					<textElement textAlignment="Right" verticalAlignment="Top">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Paid Amount : ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="263" y="113" width="132" height="17" uuid="94418cf1-e4c7-42fc-99cd-023a60ca5016"/>
+					<textFieldExpression><![CDATA[$P{paid} ]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="0" y="73" width="555" height="27" uuid="3852ac80-a329-452e-b033-f9a752f13d09"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<text><![CDATA[<------------------ Amount Received From Customer ------------------>]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="177" width="555" height="1" uuid="b52b4888-2439-4cb4-bbe3-f6bc21f2bb8d"/>
+					<graphicElement>
+						<pen lineWidth="3.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="0" y="72" width="555" height="1" uuid="321fc8bb-32b9-4c90-9dd6-94b4014f6452"/>
+					<graphicElement>
+						<pen lineWidth="3.0" lineStyle="Double"/>
+					</graphicElement>
+				</line>
+				<line>
+					<reportElement x="0" y="100" width="555" height="1" uuid="d0548041-3fbf-4b5c-a1a5-36d8c3a1271c"/>
+					<graphicElement>
+						<pen lineStyle="Dashed"/>
+					</graphicElement>
+				</line>
+				<textField>
+					<reportElement x="0" y="196" width="555" height="25" uuid="a99ba393-76f3-4c38-befa-0d3e88f31411"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{saved}]]></textFieldExpression>
 				</textField>
 			</band>
 		</groupFooter>
@@ -116,12 +164,12 @@ WHERE
 				<text><![CDATA[1565-2323-112, 6545-2325-232]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="0" y="141" width="39" height="15" uuid="b4dea472-c958-402e-97e3-c0c31248b0ab"/>
+				<reportElement style="Column header" x="0" y="141" width="81" height="15" uuid="b4dea472-c958-402e-97e3-c0c31248b0ab"/>
 				<textElement textAlignment="Center"/>
-				<text><![CDATA[INID :]]></text>
+				<text><![CDATA[INVOICE NO :]]></text>
 			</staticText>
 			<textField>
-				<reportElement style="Detail" x="39" y="141" width="95" height="15" uuid="996c1a7d-596c-4b94-84fc-2899fb34717b"/>
+				<reportElement style="Detail" x="102" y="141" width="95" height="15" uuid="996c1a7d-596c-4b94-84fc-2899fb34717b"/>
 				<textFieldExpression><![CDATA[$F{cart_INID}]]></textFieldExpression>
 			</textField>
 			<line>
@@ -196,48 +244,90 @@ WHERE
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="65" splitType="Stretch">
+		<band height="228" splitType="Stretch">
 			<textField>
-				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="39c94946-c86e-4d81-8524-0d9832597585"/>
+				<reportElement style="Column header" x="433" y="187" width="80" height="20" uuid="39c94946-c86e-4d81-8524-0d9832597585"/>
 				<textElement textAlignment="Right">
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 			</textField>
 			<textField evaluationTime="Report">
-				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="9863d985-0d82-46a9-b9c9-91a955c10b6d"/>
+				<reportElement style="Column header" x="513" y="187" width="40" height="20" uuid="9863d985-0d82-46a9-b9c9-91a955c10b6d"/>
 				<textElement>
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<textField pattern="EEEEE dd MMMMM yyyy">
-				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="060e94c5-1900-47e5-8216-f99b019148cc"/>
+				<reportElement style="Column header" x="0" y="187" width="197" height="20" uuid="060e94c5-1900-47e5-8216-f99b019148cc"/>
 				<textElement>
 					<font size="10" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="121" y="33" width="262" height="12" forecolor="#666666" uuid="20af7358-5911-4283-b083-5ca705a1215c"/>
+				<reportElement x="151" y="148" width="262" height="12" forecolor="#666666" uuid="20af7358-5911-4283-b083-5ca705a1215c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="9" isBold="true"/>
 				</textElement>
 				<text><![CDATA[WE VALUE YOUR COMMENTS at info@company.com]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="115" y="10" width="255" height="16" uuid="d80bf204-da6d-4bb6-b0b3-8b67360b627e"/>
+				<reportElement x="144" y="0" width="289" height="26" uuid="d80bf204-da6d-4bb6-b0b3-8b67360b627e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11" isBold="true"/>
+					<font size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Thank You For Your Business.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="102" y="52" width="374" height="10" uuid="8a2e8315-8291-426d-b69e-c4b71ece4f46"/>
+				<reportElement x="163" y="218" width="255" height="10" uuid="8a2e8315-8291-426d-b69e-c4b71ece4f46"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7" isBold="true"/>
 				</textElement>
-				<text><![CDATA[(C)2022 JAMBHALE ANUJ Call 0714784337 at jambhaleanuj@gmail.com]]></text>
+				<text><![CDATA[(C)2022 JAMBHALE ANUJ Email at jambhaleanuj@gmail.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="49" width="335" height="17" uuid="afe2e684-e7f6-4cf9-a620-6846c71480d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isBold="false" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Discount's Applicable on Orders Above Rs.800                                            ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="66" width="335" height="17" uuid="e1ddfce6-d1d7-4b7f-ba1a-2350502e5bbd"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Get 3% Discount on  Purchase Above Rs.800 and Below Rs 1500                                            ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="83" width="335" height="17" uuid="6dfcb149-568b-4c3e-8c5e-5ce6f03903b1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Get 5% Discount on  Purchase Above Rs.1500 and Below Rs 2500                                            ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="335" height="17" uuid="05f9e661-8017-4eba-9c21-19f3464b6f30"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Get 7% Discount on  Purchase Above Rs.2500 and Below Rs 5000                                            ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="117" width="335" height="17" uuid="ddc73682-b9a3-4efa-b4d3-ffda6050eed3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Get 10% Discount on  Purchase Above Rs 5000                                            ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="163" y="160" width="250" height="10" uuid="d4a9343f-d154-4507-ac5e-b87054b04d30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[This is a computer generated invoice no signature required]]></text>
 			</staticText>
 		</band>
 	</pageFooter>

@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customerReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d1bcf4f9-bf7a-47b2-a14a-e89c88e0f285">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="196"/>
 	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -55,85 +55,85 @@ WHERE
 		<band height="503" splitType="Stretch">
 			<staticText>
 				<reportElement x="30" y="84" width="131" height="20" uuid="d9e7c52d-b660-4d6c-b6e0-ed742ff553d7"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Customer Name :]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="197" y="84" width="332" height="20" uuid="12af5bd1-0730-4abc-9548-fdd0c94a737e"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customer_customer_name}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="30" y="139" width="131" height="20" uuid="ae5bb889-c4bf-4289-a7ce-72915e75400e"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Mobile Number: ]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="197" y="140" width="332" height="20" uuid="5551ef31-8ffd-418f-8066-332b95643d72"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customer_Tp_Number}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="30" y="197" width="131" height="20" uuid="452a7edc-d6a0-443c-9b24-9f563653f6b9"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[customer_email]]></text>
+				<text><![CDATA[E-Mail]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="197" y="197" width="332" height="20" uuid="d79039ea-2af3-4558-9453-fc67ebb3920d"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customer_email}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="30" y="243" width="121" height="20" uuid="a466cd76-6405-4d32-8ffa-9d329ac60e37"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[customer_city]]></text>
+				<text><![CDATA[City]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="197" y="243" width="332" height="20" uuid="3d8fbcce-56c4-44a1-a3f9-e18e71da1f08"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customer_city}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="30" y="291" width="144" height="20" uuid="540c1e92-6915-49fb-8a72-7f99742f2eff"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
-				<text><![CDATA[customer_address]]></text>
+				<text><![CDATA[Address]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="197" y="291" width="332" height="102" uuid="a516c430-0923-4a8b-9c17-5444d7df21af"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Top">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customer_address}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="30" y="35" width="109" height="20" uuid="0dd7512e-64fb-4044-aa34-a5a4d524e610"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Customer ID:]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="197" y="35" width="100" height="20" uuid="de0c7543-b921-4b8d-abf9-063c8040f3ac"/>
-				<textElement>
-					<font size="14" isBold="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{customer_cid}]]></textFieldExpression>
 			</textField>

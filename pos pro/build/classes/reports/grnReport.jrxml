@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="grnReport" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3c2134cb-e38b-4aac-9c8b-790cb010bc1f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="grnDataSet" uuid="50f2efe8-a263-423c-ac58-abbb64d02047">
+		<parameter name="grnID" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<parameter name="grnNum" class="java.lang.String">
+			<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT
+     grn.`Sid` AS grn_Sid,
+     grn.`Barcode` AS grn_Barcode,
+     grn.`Itm_Name` AS grn_Itm_Name,
+     grn.`Qty` AS grn_Qty,
+     grn.`Cost_Price` AS grn_Cost_Price,
+     grn.`Sell_Price` AS grn_Sell_Price,
+     grn.`Delivery_Date` AS grn_Delivery_Date,
+     grn.`Sub_Total` AS grn_Sub_Total,
+     grn.`Discount` AS grn_Discount,
+     grn.`Net_Total` AS grn_Net_Total,
+     grn.`GRN_NO` AS grn_GRN_NO,
+     grn.`id` AS grn_id
+FROM
+     `grn` grn
+WHERE
+     GRN_NO = $P{grnNum}]]>
+		</queryString>
+		<field name="grn_Sid" class="java.lang.String"/>
+		<field name="grn_Barcode" class="java.lang.String"/>
+		<field name="grn_Itm_Name" class="java.lang.String"/>
+		<field name="grn_Qty" class="java.lang.String"/>
+		<field name="grn_Cost_Price" class="java.lang.String"/>
+		<field name="grn_Sell_Price" class="java.lang.String"/>
+		<field name="grn_Delivery_Date" class="java.lang.String"/>
+		<field name="grn_Sub_Total" class="java.lang.String"/>
+		<field name="grn_Discount" class="java.lang.String"/>
+		<field name="grn_Net_Total" class="java.lang.String"/>
+		<field name="grn_GRN_NO" class="java.lang.String"/>
+		<field name="grn_id" class="java.lang.Integer"/>
+	</subDataset>
+	<parameter name="grnID" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     grn.`id` AS grn_id,
+     grn.`GRN_NO` AS grn_GRN_NO,
+     grn.`Sid` AS grn_Sid,
+     grn.`Barcode` AS grn_Barcode,
+     grn.`Itm_Name` AS grn_Itm_Name,
+     grn.`Qty` AS grn_Qty,
+     grn.`Cost_Price` AS grn_Cost_Price,
+     grn.`Sell_Price` AS grn_Sell_Price,
+     grn.`Delivery_Date` AS grn_Delivery_Date,
+     grn.`Sub_Total` AS grn_Sub_Total,
+     grn.`Discount` AS grn_Discount,
+     grn.`Net_Total` AS grn_Net_Total
+FROM
+     `grn` grn
+WHERE
+     GRN_NO = $P{grnID}]]>
+	</queryString>
+	<field name="grn_id" class="java.lang.Integer"/>
+	<field name="grn_GRN_NO" class="java.lang.String"/>
+	<field name="grn_Barcode" class="java.lang.String"/>
+	<field name="grn_Itm_Name" class="java.lang.String"/>
+	<field name="grn_Qty" class="java.lang.String"/>
+	<field name="grn_Cost_Price" class="java.lang.String"/>
+	<field name="grn_Sell_Price" class="java.lang.String"/>
+	<field name="grn_Delivery_Date" class="java.lang.String"/>
+	<field name="grn_Sub_Total" class="java.lang.String"/>
+	<field name="grn_Discount" class="java.lang.String"/>
+	<field name="grn_Net_Total" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="185" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="169" backcolor="#CCFFFF" uuid="4b3c8dcf-b300-4a39-b24c-66da79b4ed6f"/>
+				<image>
+					<reportElement x="17" y="18" width="200" height="55" uuid="fe4fd26e-af71-45b6-a30f-2e9d2b605686"/>
+					<imageExpression><![CDATA["C:\\Users\\Anuj\\Downloads\\POS-JAVA-Netbeans-MySql-master\\pos pro\\src\\reports\\logo.jpg"]]></imageExpression>
+				</image>
+				<staticText>
+					<reportElement x="290" y="0" width="236" height="43" uuid="3f541108-9b4c-4e9d-8d2a-f9ecfa7770b6"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="20" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ABC Company Ltd]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="301" y="93" width="201" height="32" uuid="d0a7e7ea-f516-4bc7-822a-2e95da65c2a5"/>
+					<box>
+						<pen lineWidth="2.75" lineStyle="Double"/>
+						<topPen lineWidth="2.75" lineStyle="Double"/>
+						<leftPen lineWidth="2.75" lineStyle="Double"/>
+						<bottomPen lineWidth="2.75" lineStyle="Double"/>
+						<rightPen lineWidth="2.75" lineStyle="Double"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Material Receipt Note]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="702" y="93" width="100" height="20" uuid="abfc2f06-d468-4392-a61b-82885cda7555"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Authorized]]></text>
+				</staticText>
+				<frame>
+					<reportElement mode="Opaque" x="0" y="142" width="802" height="27" uuid="c1dd4262-ddb5-4225-aed1-b61938f6ee64"/>
+					<staticText>
+						<reportElement x="22" y="0" width="74" height="27" uuid="a7ba1f9a-0443-440b-8f75-95cabe38edc9"/>
+						<textElement textAlignment="Justified" verticalAlignment="Middle">
+							<font fontName="Arial" size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[GRN NO:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="117" y="0" width="100" height="27" uuid="a56b92dc-b19d-44c8-91be-09cd226dd4ab"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="14" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{grnID}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="476" y="0" width="100" height="27" uuid="84ffe2a7-ca77-45e7-8c46-5b2eb68589a0"/>
+						<textElement textAlignment="Justified" verticalAlignment="Middle">
+							<font fontName="Arial" size="14" isBold="true"/>
+						</textElement>
+						<text><![CDATA[GRN DATE:]]></text>
+					</staticText>
+					<textField>
+						<reportElement x="576" y="0" width="140" height="27" uuid="d34bac1a-4320-4f3d-aa19-8d3170b26421"/>
+						<textElement verticalAlignment="Middle">
+							<font fontName="Arial" size="13"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{grn_Delivery_Date}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+		</band>
+	</title>
+	<detail>
+		<band height="69">
+			<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
+			<componentElement>
+				<reportElement key="table 3" style="table 3" x="53" y="0" width="696" height="61" uuid="b892fd84-fe51-4d4a-88b5-1e2f66a90922">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} == 1]]></printWhenExpression>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="grnDataSet" uuid="8ddcc02f-70df-42ac-91c2-c825fb5ca57b">
+						<datasetParameter name="grnNum">
+							<datasetParameterExpression><![CDATA[$P{grnID}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="68" uuid="f52a9a27-e335-4d77-98c3-280f3c6d0dfb">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="68" height="30" uuid="ac580b3e-792e-4ffc-ac76-f18d65721e28"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Seller ID]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="68" height="20" uuid="46345899-519a-4549-9109-9e7fe789f9b0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Sid}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="106" uuid="fc31ab27-d79d-4d08-ba67-a87845083213">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="106" height="30" uuid="a39c3c2d-6f08-4774-bcf1-0f24cad73371"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="14" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Barcode]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="106" height="20" uuid="8514e793-75ad-47aa-8f22-d68f86380a8d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Barcode}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e73c08c7-06b1-4b32-955a-4b491de24771">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="f388a77c-ff89-4b59-9876-f773424a4490"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Product Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="66843e10-ea07-44aa-8ea9-b9d46306635c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Itm_Name}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="81" uuid="4babeb6d-60b6-42eb-acdc-48db81c9d5f8">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="81" height="30" uuid="a23ace3e-dd8e-4460-b864-aebbe8e604ce"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Quantity]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="81" height="20" uuid="316fd121-608e-4120-8ece-abea6f1037c3"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Qty}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="76" uuid="bca5b653-886c-4bbd-8268-ab97ed4a3ff5">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="75" height="30" uuid="1440eadd-fc34-42ba-82d9-0b0dd68980d0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Cost Price]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="75" height="20" uuid="25d787ca-e22a-467a-9385-9d6b7415dc72"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Cost_Price}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="81" uuid="18a6e9f1-fb8a-4c1a-a91d-5ab08f1f9452">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="79" height="30" uuid="30d310c5-45aa-4231-861b-03fd4064219d"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Selling Price]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="79" height="20" uuid="3da37267-0eff-49b9-9131-9dbe63031cb7"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Sell_Price}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="a37571e8-263b-4c38-b2e2-f84685622d3c">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="26b77187-1965-44fc-9559-1c94f878d950"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Sub Total]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="5e922779-2853-4bcc-ab59-12c4efb9e04c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Sub_Total}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="e6fe31cd-f73a-4164-a12f-aa74c84e23ca">
+						<jr:columnHeader style="table 3_CH" height="44" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="bf8dd7cc-b2ce-4843-bdd6-984e3f8145e8"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Discount]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="table 3_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="7127c210-e476-4410-a6a2-5cb785eabc88"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="Arial" size="12"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{grn_Discount}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="99" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="15" width="802" height="39" uuid="cbc29ed1-feac-4c7e-b902-2f731a1b9294"/>
+				<box>
+					<pen lineWidth="1.5"/>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<staticText>
+					<reportElement x="546" y="0" width="102" height="39" uuid="02307aa4-2ca2-4503-b6d4-c0e6940245ab"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Arial" size="16" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Grand Total : ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="648" y="0" width="154" height="39" uuid="41321e47-99b3-429b-b187-62665913db5f"/>
+					<textElement textAlignment="Justified" verticalAlignment="Middle">
+						<font fontName="Arial" size="15" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{grn_Net_Total}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="79" width="210" height="20" uuid="81272257-38b6-4299-bb90-bbce6732790d"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="665" y="79" width="80" height="20" uuid="6162dd24-ec8e-42ac-a8b2-9e182e808739"/>
+				<textElement textAlignment="Right">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="745" y="79" width="40" height="20" uuid="ad9853be-fec1-4930-899c-cb47e96d999d"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

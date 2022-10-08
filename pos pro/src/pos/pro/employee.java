@@ -57,7 +57,8 @@ public class employee extends javax.swing.JPanel {
                 v.add(rs.getString(1));
                 v.add(rs.getString(2));
                 v.add(rs.getString(3));
-
+                v.add(rs.getString(4));
+                v.add(rs.getString(5));
                 dt.addRow(v);
 
             }
@@ -236,13 +237,13 @@ public class employee extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "ID", " Employee Name", "Mobile Number"
+                "ID", " Employee Name", "Mobile Number", "Age", "Address"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -311,12 +312,13 @@ public class employee extends javax.swing.JPanel {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(c_search_tbl, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(c_search_tbl, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 345, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -455,11 +457,15 @@ public class employee extends javax.swing.JPanel {
         String id = jTable1.getValueAt(r, 0).toString();
         String name = jTable1.getValueAt(r, 1).toString();
         String tp = jTable1.getValueAt(r, 2).toString();
-
-        c_search.setText(id);
-        c_name.setText(name);
-        c_tp.setText(tp);
-
+        String age = jTable1.getValueAt(r,3).toString();
+        String address = jTable1.getValueAt(r, 4).toString();
+        
+        
+        c_search.setText(id);           //Search id
+        c_name.setText(name);           //name
+        c_tp.setText(tp);               //mobile number
+        c_age.setText(age);             //Age
+        jTextArea1.setText(address);  //Address
 
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -480,7 +486,8 @@ public class employee extends javax.swing.JPanel {
                 v.add(rs.getString(1));
                 v.add(rs.getString(2));
                 v.add(rs.getString(3));
-
+                v.add(rs.getString(4));
+                v.add(rs.getString(5));
                 dt.addRow(v);
 
             }

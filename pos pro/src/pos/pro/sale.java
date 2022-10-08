@@ -217,6 +217,68 @@ private static String message="";
      }
     bill_tot.setText(Double.toString(total));
     
+    
+    //calculating discount
+    double discount,costToPaid;
+      if(total<=800)
+      {
+          
+         //No Discount  
+         costToPaid = total;
+         discount = 0;
+         discountBal.setText(Double.toString(costToPaid));
+          discountAmt.setText(Double.toString(discount));
+         
+      }
+      else if(total>800 && total<=1500)
+      {
+          
+         // 3% discount 
+         discount = (total*3)/100;
+         costToPaid = total - discount;
+         discountBal.setText(Double.toString(costToPaid));
+         discountBal.show();
+         
+         discountAmt.setText(Double.toString(discount));
+         discountAmt.show();
+         
+      }
+      else if(total>1500 && total<=2500)
+      {
+          
+         // 5% discount 
+         discount = (total*5)/100;
+         costToPaid = total - discount;
+         discountBal.setText(Double.toString(costToPaid));
+         discountBal.show();
+         
+          discountAmt.setText(Double.toString(discount));
+         discountAmt.show();
+      }
+      else if(total>2500 && total<=5000)
+      {
+          // 7% discount
+         discount = (total*7)/100;
+         costToPaid = total - discount;
+        discountBal.setText(Double.toString(costToPaid));
+         discountBal.show();
+         
+          discountAmt.setText(Double.toString(discount));
+         discountAmt.show();
+      }
+      else if(total>5000)
+      {
+          
+          // 10% discount
+         discount = (total*10)/100;
+         costToPaid = total - discount;
+         discountBal.setText(Double.toString(costToPaid));
+         discountBal.show();
+         
+          discountAmt.setText(Double.toString(discount));
+         discountAmt.show();
+      }
+    
    /// total qty count 
    
    int numofrows = jTable1.getRowCount();
@@ -238,12 +300,12 @@ private static String message="";
  public void tot(){
      
  Double paid = Double.valueOf(paid_amt.getText());
-       Double tot = Double.valueOf(bill_tot.getText());
+       Double tot = Double.valueOf(discountBal.getText());
        Double due ;
        
        due =  paid -tot ;
        
-       balance.setText(String.valueOf(due));
+       balance.setText(String.valueOf(due.intValue()));
  
  }
  
@@ -286,6 +348,10 @@ private static String message="";
         jPanel7 = new javax.swing.JPanel();
         bill_tot = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        discountBal = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        discountAmt = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         balance = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -383,6 +449,8 @@ private static String message="";
             }
         });
 
+        com_pro.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -419,13 +487,13 @@ private static String message="";
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(p_qty))
                         .addGap(4, 4, 4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGap(3, 3, 3)
                             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
@@ -438,11 +506,10 @@ private static String message="";
                             .addComponent(tot_price)
                             .addComponent(br_code))
                         .addComponent(txtBarcode))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(com_pro)
-                            .addComponent(jLabel4))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4))
+                    .addComponent(com_pro))
                 .addContainerGap())
         );
 
@@ -491,6 +558,7 @@ private static String message="";
         });
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton4.setMnemonic('P');
         jButton4.setText("Pay & Print");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -551,13 +619,32 @@ private static String message="";
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        bill_tot.setBackground(new java.awt.Color(204, 204, 0));
         bill_tot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         bill_tot.setText("00.00");
         bill_tot.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        bill_tot.setOpaque(true);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel10.setText("Total Amount :");
+        jLabel10.setText("Balance Before Discount :");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel12.setText("Balance After discount:");
+
+        discountBal.setBackground(new java.awt.Color(102, 255, 102));
+        discountBal.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        discountBal.setText("00.00");
+        discountBal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        discountBal.setOpaque(true);
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel13.setText("Discount Amount:");
+
+        discountAmt.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        discountAmt.setText("00.00");
+        discountAmt.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -573,30 +660,51 @@ private static String message="";
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(balance, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                    .addComponent(bill_tot, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bill_tot, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(discountBal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel11))
+                        .addGap(58, 58, 58)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(discountAmt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(balance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bill_tot, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bill_tot, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel12)
+                    .addComponent(discountBal, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(22, 22, 22))
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel13))
                     .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(discountAmt, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel11)
+                        .addGap(31, 31, 31))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
                         .addComponent(balance, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                        .addContainerGap(26, Short.MAX_VALUE))))
         );
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
@@ -627,14 +735,17 @@ private static String message="";
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(tot_qty, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(paid_amt)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(tot_qty, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(paid_amt)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -673,7 +784,8 @@ private static String message="";
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -686,9 +798,7 @@ private static String message="";
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -815,7 +925,7 @@ private static String message="";
             String inv_id = inid.getText();
             String cname  = com_cus.getSelectedItem().toString();
             String totqty = tot_qty.getText();
-            String tot_bil = bill_tot.getText();
+            String tot_bil = discountBal.getText();
             String blnc = balance.getText();
 
             // java.util.Date date=new java.util.Date();
@@ -827,7 +937,7 @@ private static String message="";
 
             // paid check
 
-            Double tot = Double.valueOf(bill_tot.getText());
+            Double tot = Double.valueOf(discountBal.getText());
             Double pid = Double.valueOf(paid_amt.getText());
             String Status = null;
             if (pid.equals(0.0)) {
@@ -876,7 +986,8 @@ private static String message="";
             HashMap para = new HashMap();
 
             para.put("inv_id", inid.getText());  // inv_id  is ireport parameter name
-
+            para.put("paid", paid_amt.getText()+" /-");
+            para.put("saved"," ** Saved Rs. "+ discountAmt.getText()+" /-  On MRP **");
             ReportView r =new ReportView("src\\reports\\print.jasper", para);
             r.setVisible(true);
 
@@ -945,6 +1056,8 @@ private static String message="";
     private javax.swing.JLabel br_code;
     private javax.swing.JComboBox<String> com_cus;
     private javax.swing.JTextField com_pro;
+    private javax.swing.JLabel discountAmt;
+    private javax.swing.JLabel discountBal;
     private javax.swing.JLabel inid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -953,6 +1066,8 @@ private static String message="";
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
