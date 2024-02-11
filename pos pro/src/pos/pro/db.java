@@ -23,7 +23,7 @@ public class db {
      try {
          
          Class.forName("com.mysql.cj.jdbc.Driver");
-         con = DriverManager.getConnection("jdbc:mysql://localhost/pos","root","sanjeevani");
+         con = DriverManager.getConnection("jdbc:mysql://localhost/pos","root","password");
          return con;
          
          
